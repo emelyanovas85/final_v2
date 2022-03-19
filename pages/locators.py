@@ -18,3 +18,11 @@ class ProductPageLocators():
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_LINK = (By.CSS_SELECTOR, ".btn-group > .btn-default:nth-child(1)")
+
+
+class BasketPageLocators():
+    MESSAGE_ABOUT_BASKET_IS_EMPTY = (By.CSS_SELECTOR, "#content_inner p") 
+    SOME_PRODUCT_IN_BASKET = (By.CSS_SELECTOR, ".basket-items")  #возможно придется искать не один а несколько
+    
+    

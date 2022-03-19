@@ -1,5 +1,6 @@
 from selenium.common.exceptions import NoAlertPresentException
 from .pages.product_page import ProductPage
+from .pages.basket_page import BasketPage
 import pytest
 import time
 
@@ -67,5 +68,27 @@ def test_guest_can_go_to_login_page_from_product_page(browser, links):
     page = ProductPage(browser, link)
     page.open()
     page.go_to_login_page()
+
+
+@pytest.mark.parametrize('links', ['http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/'])
+#@pytest.mark.temp_new
+
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser, links):
+    link = f'{links}'
+    page = ProductPage(browser, link)
+    page.open()
+    page.should_be_basket_link()
+    page.go_to_basket_page()
+    page2 = BasketPage(browser, browser.current_url)
+    page2.guest_can_see_message_about_basket_is_empty()
+    page2.basket_is_empty()
+    page2.guest_cant_see_success_some_adding_product_to_basket()        
+    
+
+#Ожидаем, что в корзине нет товаров
+#Ожидаем, что есть текст о том что корзина пуста 
+#В классе BasePage реализуйте соответствующий метод для перехода в корзину. Создайте файл basket_page.py и в нем класс BasketPage. Реализуйте там необходимые проверки, в том числе отрицательную, которую мы обсуждали в предыдущих шагах. 
+#
+#Убедитесь, что тесты проходят и зафиксируйте изменения в коммите. 
 
 
