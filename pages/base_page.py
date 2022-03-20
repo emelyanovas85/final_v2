@@ -18,6 +18,14 @@ class BasePage():
         self.browser.implicitly_wait(timeout)
 
 
+    def send_keyss(self, how, what, value):
+        try:
+            self.browser.find_element(how, what).send_keys(value)
+        except (NoSuchElementException):
+            return False
+        return True
+
+
     def is_element_present(self, how, what):
         try:
             self.browser.find_element(how, what)
@@ -85,7 +93,9 @@ class BasePage():
     def should_be_basket_link(self):
         assert self.is_element_present(*BasePageLocators.BASKET_LINK), "Basket link is not presented"
 
-
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                 " probably unauthorised user"
 
 #В классе BasePage реализуйте соответствующий метод для перехода в корзину
 #РАЗМЕСТИТЬ В АЛФАВИТНОМ ПОРЯДКЕ 

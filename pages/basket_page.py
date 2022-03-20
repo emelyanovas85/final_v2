@@ -18,6 +18,3 @@ class BasketPage(BasePage):
         assert self.is_not_element_present(*BasketPageLocators.SOME_PRODUCT_IN_BASKET), "SOME_PRODUCT_IN_BASKET, but guest did not add product to basket"
 
     
-    #def message_about_basket_is_empty_disappeared(self):
-    #    assert self.is_disappeared(*ProductPageLocators.MESSAGE_ABOU_BASKET_IS_EMPTY), "MESSAGE_ABOU_BASKET_IS_EMPTY is disappeared, but user did not add product to basket"
-    
