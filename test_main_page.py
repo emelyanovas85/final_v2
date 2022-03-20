@@ -32,6 +32,7 @@ def test_guest_should_see_login_form(browser):
     login_page1 = LoginPage(browser, browser.current_url)
     login_page1.should_be_login_form()
     
+    
 def test_guest_hould_see_register_form(browser):
     link = "http://selenium1py.pythonanywhere.com/"
     page = MainPage(browser, link)
@@ -40,6 +41,7 @@ def test_guest_hould_see_register_form(browser):
     login_page2 = LoginPage(browser, browser.current_url)
     login_page2.should_be_register_form()
     
+
 def test_guest_should_see_login_url(browser):
     link = "http://selenium1py.pythonanywhere.com/"
     page = MainPage(browser, link)
@@ -47,6 +49,7 @@ def test_guest_should_see_login_url(browser):
     page.go_to_login_page()
     login_page3 = LoginPage(browser, browser.current_url)
     login_page3.should_be_login_url()
+
 
 def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     link = "http://selenium1py.pythonanywhere.com/"
@@ -58,6 +61,7 @@ def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     page2.guest_can_see_message_about_basket_is_empty()
     page2.basket_is_empty()
     page2.guest_cant_see_success_some_adding_product_to_basket()
+
 
 def test_register_new_user(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/"
